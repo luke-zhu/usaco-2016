@@ -1,0 +1,55 @@
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <cmath>
+#include <vector>
+
+using namespace std;
+
+int n, point[200][2], edge[200], dist[200], extra[200];
+
+bool check(int start, int len) {
+	vector<int> seq(len);
+	for (int i = 0; i < len; ++i) {
+		seq[i] = edge[i + 1];
+	}
+
+	for (int i = 1; i < n - len; ++i) {
+		for (int j = 0; j < len; ++j) {
+			if seq[j]
+		}
+	}
+}
+
+int main() {
+	ifstream cin("lightsout.in");
+	// ofstream cout("lightsout.out");
+
+	cin >> n;
+	for (int i = 0; i < n; ++i) {
+		cin >> point[i][0] >> point[i][1];
+	}
+
+	edge[0] = -1;
+	dist[0] = 0;
+	for (int i = 1; i < n; ++i) {
+		edge[i] = abs(point[i][0] + point[i][1] - point[i - 1][0] - point[i - 1][1]);
+		dist[i] = dist[i - 1] + edge[i];
+	}
+
+	dist[n - 1] = abs(point[0][0] + point[0][1] - point[n - 1][0] - point[n - 1][1]);
+	for (int i = n - 2; i > 0; --i) {
+		dist[i] = min(dist[i], dist[i + 1] + edge[i + 1]);
+	}
+
+	for (int i = 0; i < n; ++i) {
+		cout << edge[i] << "\n";
+	}
+
+	for (int i = 1; i < n - 1; ++i) {
+		for (int j = 1; j < n - i; ++i) {
+			check(j, i);
+		}
+	}
+	
+}

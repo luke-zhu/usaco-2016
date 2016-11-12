@@ -1,0 +1,1 @@
+// hash tables, KMP algorithm, suffix trie, suffix array

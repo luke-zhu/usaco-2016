@@ -1,0 +1,1 @@
+// cross product, convex hull, sweep line, intersecting half - planes
